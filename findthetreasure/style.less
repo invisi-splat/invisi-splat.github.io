@@ -1,0 +1,53 @@
+// i mean if you're changing this you're only going to break the website on your end so what's the point
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 0.7vw;
+}
+
+.game-container {
+  height: 100%;
+  width: 100%;
+  .game {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    .treasure {
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      z-index: 69420;
+      .image {
+        pointer-events: none;
+      }
+    }
+  }
+  .meta {
+    position: absolute;
+    right: 1vw;
+    height: 12vh;
+    width: 15vw;
+    font-size: 2em;
+    .timer {
+      width: 100%;
+      text-align: center;
+    }
+    .remaining {
+      width: 100%;
+      text-align: center;
+    }
+    .give-up {
+      cursor: pointer;
+    }
+  }
+  .credits {
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

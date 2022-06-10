@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>French conjugation practice (AQA GCSE)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script src="//cdn.jsdelivr.net/npm/less" ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script src="verbs.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <!-- good job, you figured out how to inspect element
+  well i don't particularly mind if you do, if you cheat it's to your own detriment -->
+  <body>
+    <div class="title">
+      <h1>French conjugation practice</h1>
+      <h3>AQA GCSE</h3>
+    </div>
+    <div class="game-container">
+      <div class="score">
+        <div class="fraction">
+          <span id="numerator">0</span>
+          <span id="over">out of</span>
+          <span id="denominator">0</span>
+        </div>
+        <div id="percentage">
+          0%
+        </div>
+      </div>
+      <div class="game">
+        <div class="word">
+          <p id="translation">[translation]</p>
+          <p id="verb">[verb]</p>
+        </div>
+        <div class="word-info">
+          <p id="tense">[tense]</p>
+          <p id="pronoun">[pronoun]</p>
+        </div>
+        <div class="input">
+          <p class="pre-text">[pre-text]</p>
+          <input id="input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus />
+          <div class="symbol-container">
+            <span class="symbol" id="tick">✓</span>
+            <span class="symbol" id="cross">✗</span>
+          </div>
+          <div id="continue"><div>→</div></div>
+        </div>
+        <div class="correct">
+          <p class="pre-text hidden">[pre-text]</p>
+          <p id="correct">test</p>
+        </div>
+      </div>
+      <div class="streak">
+        <span id="streak">0x</span>
+        <span id="streak-text">streak</span>
+      </div>
+    </div>
+    <div id="settings-icon">
+      <img src="settings.png" />
+    </div>
+    <div id="language">
+      ES
+    </div>
+    <div id="accent-keyboard">
+      <span class="letter" id="à">à</span>
+      <span class="letter" id="â">â</span>
+      <span class="letter" id="é">é</span>
+      <span class="letter" id="è">è</span>
+      <span class="letter" id="ê">ê</span>
+      <span class="letter" id="ë">ë</span>
+      <span class="letter" id="î">î</span>
+      <span class="letter" id="ï">ï</span>
+      <span class="letter" id="ô">ô</span>
+      <span class="letter" id="ù">ù</span>
+      <span class="letter" id="û">û</span>
+      <span class="letter" id="ü">ü</span>
+      <span class="letter" id="ç">ç</span>
+    </div>
+    <div class="settings">
+      <div class="settings-title-wrapper">
+        <div class="settings-title">Settings</div>
+      </div>
+      <div class="settings-main">
+        <form class="settings-form">
+          <div class="tenses">
+            <div class="settings-form-title">Tenses</div>
+            <label for="present"><input type="checkbox" id="present" name="present" value="present" checked /><span class="checkmark"></span>Present</label><br />
+            <label for="perfect"><input type="checkbox" id="perfect" name="perfect" value="perfect" checked /><span class="checkmark"></span>Perfect</label><br />
+            <label for="imperfect"><input type="checkbox" id="imperfect" name="imperfect" value="imperfect" checked /><span class="checkmark"></span>Imperfect</label><br />
+            <label for="simple_future"><input type="checkbox" id="simple_future" name="simple_future" value="simple_future" checked /><span class="checkmark"></span>Simple Future</label><br />
+            <label for="conditional"><input type="checkbox" id="conditional" name="conditional" value="conditional" checked /><span class="checkmark"></span>Conditional</label><br />
+            <label for="pluperfect"><input type="checkbox" id="pluperfect" name="pluperfect" value="pluperfect" checked /><span class="checkmark"></span>Pluperfect</label><br />
+            <label for="imperative"><input type="checkbox" id="imperative" name="imperative" value="imperative" checked /><span class="checkmark"></span>Imperative</label><br />
+            <label for="present_participle"><input type="checkbox" id="present_participle" name="present_participle" value="present_participle" checked /><span class="checkmark"></span>Present Participle</label><br />
+          </div>
+          <div class="verbs">
+            <div class="settings-form-title">Verbs</div>
+            <label id="all_verbs_label" for="all_verbs"><input type="checkbox" id="all_verbs" name="all_verbs" value="all_verbs" checked /><span class="checkmark"></span>All verbs</label><br />
+            <label class="dark" for="aller"><input type="checkbox" id="aller" name="aller" value="aller" checked /><span id="aller_check" class="checkmark dark box"></span>aller</label><br />
+            <label class="dark" for="avoir"><input type="checkbox" id="avoir" name="avoir" value="avoir" checked /><span id="avoir_check" class="checkmark dark box"></span>avoir</label><br />
+            <label class="dark" for="être"><input type="checkbox" id="être" name="être" value="être" checked /><span id="etre_check" class="checkmark dark box"></span>être</label><br />
+            <label class="dark" for="faire"><input type="checkbox" id="faire" name="faire" value="faire" checked /><span id="faire_check" class="checkmark dark box"></span>faire</label><br />
+            <label class="dark" for="er"><input type="checkbox" id="er" name="er" value="er" checked /><span id="er_check" class="checkmark dark box"></span>-er verbs</label><br />
+            <label class="dark" for="ir"><input type="checkbox" id="ir" name="ir" value="ir" checked /><span id="ir_check" class="checkmark dark box"></span>-ir verbs</label><br />
+            <label class="dark" for="re"><input type="checkbox" id="re" name="re" value="re" checked /><span id="re_check" class="checkmark dark box"></span>-re verbs</label><br />
+          </div>
+        </form>
+        <div class="credits">
+          <p>Made in a few days by invisi (Bowen)</p>
+          <p>Vocabulary and tenses came from AQA French GCSE specs online, conjugations sourced from the verbecc python package</p>
+          <p>Due to verbecc no longer being supported, it is likely that errors will persist in the database</p>
+          <p>If you discover a bug please message me with the console logs on discord: <span>invisi.#0561</span></p>
+          <p>(Hopefully this works well on mobile!)</p>
+        </div>
+      </div>
+      <div class="save-container">
+        <div id="save">Save</div>
+      </div>
+    </div>
+  </body>
+</html>

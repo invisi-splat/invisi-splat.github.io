@@ -1,0 +1,140 @@
+html {
+  height: 100vh;
+}
+
+body {
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+h1.title {
+  font-size: 8em;
+  text-align: center;
+  height: 10vh;
+  margin: 2.5vh;
+  text-shadow: 0.05em 0.05em lightgray;
+  color: cyan;
+  /*total height: 15vh*/
+}
+
+.table-container {
+  text-align: center;
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 7.5vh 0;
+  /*total height: 30vh*/
+  .row {
+    padding: 1em;
+    flex: 1 1 auto;
+    display: flex;
+    div {
+      flex: 1 1 auto;
+      border: 0.35em solid;
+      margin: 0 1em;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      span {
+        position: absolute;
+        z-index: 1;
+        font-size: 5em;
+        width: auto;
+        text-align: center;
+      }
+    }
+  }
+  .total-container {
+    text-align: right;
+    .total {
+      font-size: 5em;
+      text-shadow: 0.05em 0.05em lightgray;
+    }
+  }
+  #grade div {
+    border-color: lightgreen;
+  }
+  #mistakes div {
+    border-color: palevioletred;
+  }
+}
+
+.buttonflex {
+  flex: 1 1 auto;
+  padding: 0.5em;
+  margin: 0.25em;
+  text-align: center;
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  text-shadow: 0.05em 0.05em lightgray;
+  span {
+    width: inherit;
+    margin: 0 auto;
+    pointer-events: none;
+  }
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.keypad {
+  height: 40vh;
+  max-width: 100vh;
+  text-align: center;
+  display: flex;
+  background-color: slategrey;
+  .left {
+    flex: 3 1 auto;
+    display: flex;
+    flex-direction: column;
+    .grades-container {
+      flex: 1 1 auto;
+      display: flex;
+      .button {
+        .buttonflex();
+        color: darkgreen;
+        background-color: lightgreen;
+      }
+    }
+    .mistakes-container {
+      flex: 10 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .row {
+        flex: 1 1 auto;
+        display: flex;
+        .button {
+          .buttonflex();
+          color: darkred;
+          background-color: #ffcccb;
+        }
+      }
+    }  
+  }
+  .divider {
+    border: 0.2em solid lightgrey;
+    border-radius: 0.1em;
+    margin: 2em 0;
+  }
+  .right {
+    flex: 1 1 auto;
+    display: flex;
+    .special-container {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      .button {
+        .buttonflex();
+        font-size: 2vh;
+        color: orangered;
+        background-color: #ffd699;
+      }
+    }
+  }
+}

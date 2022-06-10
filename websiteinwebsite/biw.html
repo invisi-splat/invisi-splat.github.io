@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website In Website!</title>
+    <link rel="stylesheet" type="text/css" href="./biw.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="./biw.js"></script>
+  </head>
+  <body>
+    <h1 class="heading">Website In Website</h1>
+    <p>Version 0.1.0</p>
+    <div class="website-form">
+      <form id="website-form" onsubmit="handleForm(); return false">
+        <p>Enter Website here:</p>
+        <input id="website-form-input" type="text" />
+      </form>
+    </div>
+    <div class="info">
+      <br />
+      <p>This is a website that sends a GET request and renders it on the page.<br /><br />It bypasses the same origin policy (currently) through <a href="https://cors-anywhere.herokuapp.com/">cors-anywhere</a>.<br /><br />This means that you can view a website... within a website!</p>
+      <p>Note that this is still experimental and many features are yet to be added.</p>
+      <p>A lot of things still don't work. But hey, you can view Reddit.</p>
+      <br />
+    </div>
+    <div class="footer">
+      <p id="bottom-text">This page was made by <a href="https://www.reddit.com/user/1nvis1" target="_blank">1nvis1</a></p>
+    </div>
+  </body>
+</html>
