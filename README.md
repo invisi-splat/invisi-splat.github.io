@@ -1,2 +1,2 @@
-# invisi-splat.github.io
+# invisiprojs
 Personal website
